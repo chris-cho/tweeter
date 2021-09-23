@@ -1,0 +1,21 @@
+button {
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+  color: #FFFF;
+}
+
+div#tweet {
+  font-family: 'bungee', cursive;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+textarea#tweet-text {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f1ec;
+}
