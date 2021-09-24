@@ -5,6 +5,7 @@ button {
 }
 
 div#tweet {
+  display: flex;
   font-family: 'bungee', cursive;
   flex-direction: row;
   justify-content: space-between;

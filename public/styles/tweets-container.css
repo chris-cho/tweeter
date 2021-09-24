@@ -1,4 +1,4 @@
-article {
+#tweets-container {
   display: inline-flex;
   margin-right: auto;
   margin-left: auto;
@@ -21,35 +21,35 @@ article {
   margin: 10px;
 }
 
-article header {
+#tweets-container header {
   display: flex;
   margin: 10px;
   justify-content: space-between;
 }
 
-article #tweet-text {
+#tweets-container #tweet-text {
   margin: 10px;
 }
 
-article footer {
+#tweets-container footer {
   font-size: 15px;
   margin: 20px;
   margin-top: 0;
   display: flex;
   justify-content: space-between;
 }
-article #footer-icons {
+#tweets-container #footer-icons {
   color: #4056A1;
 }
-article .fa-flag:hover {
+#tweets-container .fa-flag:hover {
   color: #bdb76b;
 }
-article .fa-retweet:hover {
+#tweets-container .fa-retweet:hover {
   color: #bdb76b;
 }
-article .fa-heart:hover {
+#tweets-container .fa-heart:hover {
   color: #bdb76b;
 }
-article:hover {
+#tweets-container:hover {
   box-shadow: 5px 10px #565b5d;
 }
