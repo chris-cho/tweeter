@@ -1,0 +1,55 @@
+article {
+  display: inline-flex;
+  margin-right: auto;
+  margin-left: auto;
+  flex-direction: column;
+  margin-top: 1em;
+  border: 2px solid black;
+  width: 100%;
+}
+
+#tag {
+  color: #e3ded9;
+}
+
+.far {
+  margin-right: 10px;
+}
+
+#black-bar {
+  border-top: 2px solid black;
+  margin: 10px;
+}
+
+article header {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+
+article #tweet-text {
+  margin: 10px;
+}
+
+article footer {
+  font-size: 15px;
+  margin: 20px;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+}
+article #footer-icons {
+  color: #4056A1;
+}
+article .fa-flag:hover {
+  color: #bdb76b;
+}
+article .fa-retweet:hover {
+  color: #bdb76b;
+}
+article .fa-heart:hover {
+  color: #bdb76b;
+}
+article:hover {
+  box-shadow: 5px 10px #565b5d;
+}

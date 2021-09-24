@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/article.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -29,11 +30,11 @@
     <nav>
       <span class="tweet">tweeter</span>
       <div><span class="write"><a>Write</a> a new tweet</span>
-        <i class="fas fa-angle-double-down"></i>
+        <i id="arrow" class="fas fa-angle-double-down"></i>
       </div>
     </nav>
 
-    <header>
+    <header id="header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -47,13 +48,31 @@
     <main class="container">
       <section class="new-tweet">
         <form>
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about"></textarea>
+          <label id="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
           <div id="tweet">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
+      <article>
+        <header>
+          <label id="name"><i class="far fa-smile"></i>Henry</label>
+          <label id="tag">@MrTap</label>
+        </header>
+        <label id="tweet-text">I am a man of fortune and I must seek my fortune</label>
+        <div id="black-bar"></div>
+        <footer>
+          <label id="days">10 days ago</label>
+          <div id="footer-icons">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </footer>
+      </article>
     </main>
+    <script src="scripts/composer-char-counter.js"></script>
   </body>
 </html>
