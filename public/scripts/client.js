@@ -1,31 +1,7 @@
 $(document).ready(function() {
-  const userData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is bystanding on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
-
   const renderTweets = function(tweets) {
-    Object.keys(tweets).forEach(tweet => {
-      console.log(tweet);
+    //reversing objectkeys arr to get the most recent tweet
+    Object.keys(tweets).reverse().forEach(tweet => {
       $("main").append(createTweetElement(tweets[tweet]));
     });
   };
@@ -50,5 +26,30 @@ $(document).ready(function() {
     </article>`);
     return tweet;
   };
-  renderTweets(userData);
+
+  const validateTweet = (text) => {
+    if (text.length <= 5) { //'text='.length = 5
+      alert("Please enter something");
+    } else if (text.length > 145) { //'text=' + 140 chars
+      alert("You wrote too much");
+    } else {
+      $.ajax(`/tweets`, {method: 'POST', data: text}).then(() => {
+        $('article').remove();
+        loadTweets();
+      });
+    }
+  };
+
+  $(".new-tweet").submit(function (event) {
+    event.preventDefault();
+    validateTweet($('form').serialize());
+  });
+
+  const loadTweets = () => {
+    $.ajax('/tweets', {method: 'GET'}). then(function (tweets) {
+      renderTweets(tweets);
+    });
+  };
+
+  loadTweets();
 });
