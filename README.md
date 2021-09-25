@@ -15,3 +15,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Timeago
+- JQuery
+
+## Final Product
+
+!["Desktop view of Tweeter"](https://github.com/chris-cho/tweeter/blob/master/docs/desktop_tweeter.png)
+!["Mobile view of Tweeter"](https://github.com/chris-cho/tweeter/blob/master/docs/mobile_tweeter.png)
