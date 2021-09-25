@@ -6,14 +6,35 @@ $(document).ready(function() {
     });
   };
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  const renderError = (error) => {
+    $('.error').remove();
+    $('main').prepend(error);
+    $('.error').hide().slideDown(1000);
+  };
+
+  const createErrorElement = (errorType) => {
+    if (errorType === 'long') {
+      return renderError($(`<label class="error" id="too-long"><i class="fas fa-exclamation-triangle"></i>Too long. how bout a 6 inch sub?<i class="fas fa-exclamation-triangle"></i></label>`));
+    } else if (errorType === 'short') {
+      return renderError($(`<label class="error" id="too-short"><i class="fas fa-exclamation-triangle"></i>Too short. that's what she said.<i class="fas fa-exclamation-triangle"></i></label>`));
+    }
+  };
+
+
   const createTweetElement = function(data) {
     let tweet = $(`
     <article id="tweets-container">
       <header>
-        <label id="name"><i class=${data.user.avatars}></i>${data.user.name}</label>
+        <label id="name"><img class="avatar" src=${data.user.avatars}></img>${data.user.name}</label>
         <label id="tag">${data.user.handle}</label>
       </header>
-      <label id="tweet-text">${data.content.text}</label>
+      <label id="tweet-text">${escape(data.content.text)}</label>
       <div id="black-bar"></div>
       <footer>
         <label id="days">${timeago.format(data.created_at)}</label>
@@ -29,18 +50,28 @@ $(document).ready(function() {
 
   const validateTweet = (text) => {
     if (text.length <= 5) { //'text='.length = 5
-      alert("Please enter something");
+      createErrorElement('short');
     } else if (text.length > 145) { //'text=' + 140 chars
-      alert("You wrote too much");
+      createErrorElement('long');
     } else {
-      $.ajax(`/tweets`, {method: 'POST', data: text}).then(() => {
+      $('.error').remove();
+      console.log(text.split("=")[1]);
+      const body = {
+        text: text.split("=")[1],
+        user: {
+          name: 'Chris',
+          handle: '@chris',
+          avatars: "https://i.imgur.com/73hZDYK.png"
+        }
+      };
+      $.ajax(`/tweets`, {method: 'POST', data: body}).then(() => {
         $('article').remove();
         loadTweets();
       });
     }
   };
 
-  $(".new-tweet").submit(function (event) {
+  $(".new-tweet").submit(function(event) {
     event.preventDefault();
     validateTweet($('form').serialize());
   });

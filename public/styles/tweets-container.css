@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.avatar {
+  width: 25%;
+}
+
 #tag {
   color: #e3ded9;
 }

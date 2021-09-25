@@ -20,3 +20,12 @@ textarea#tweet-text {
   margin: 0;
   background-color: #f4f1ec;
 }
+
+.error {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+  border: 2px solid red;
+  color: red;
+  margin-bottom: 2px;
+}

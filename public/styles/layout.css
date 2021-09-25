@@ -37,3 +37,39 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @media only screen and (min-width: 1024px) {
+   body {
+     display: flex;
+     flex-direction: row;
+   }
+
+   main {
+    margin: 50px;
+    margin-top: 150px;
+   }
+
+   header#header {
+    margin: 50px;
+    margin-top: 150px;
+    border: 100px;
+   }
+ }
+
+ @media only screen and (max-width: 1023px) {
+  header#header {
+    margin-top: 80px;
+  }
+  nav#bar {
+    width: 100%;
+    background-image: url("/images/basketball.png");
+    background-color: orange;
+    color: #FFFF;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
