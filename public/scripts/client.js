@@ -55,7 +55,6 @@ $(document).ready(function() {
       createErrorElement('long');
     } else {
       $('.error').remove();
-      console.log(text.split("=")[1]);
       const body = {
         text: text.split("=")[1],
         user: {
@@ -66,6 +65,7 @@ $(document).ready(function() {
       };
       $.ajax(`/tweets`, {method: 'POST', data: body}).then(() => {
         $('article').remove();
+        $('form')[0].reset();
         loadTweets();
       });
     }
