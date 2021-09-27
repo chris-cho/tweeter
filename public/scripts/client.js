@@ -73,7 +73,7 @@ $(document).ready(function() {
 
   $(".new-tweet").submit(function(event) {
     event.preventDefault();
-    validateTweet($('form').serialize());
+    validateTweet(decodeURIComponent($('form').serialize()));
   });
 
   const loadTweets = () => {
